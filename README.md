@@ -26,6 +26,6 @@ Please read through these 3 Katas. Your group will solve at least one of these K
 ## 🚨Important information
 
 - Each group can decide on their own which language they want to use, e.g. Java, Javascript, Typescript
-- We don't recommend to use any libraries what so ever
+- Don't overengineer your solution with too many libraries. On the other hand using something like `JUnit, Spock` is very encouraged 🤓
 - Use the IDE you feel most comfortable in
 - To starte create a `branch` of your group
