@@ -12,4 +12,20 @@ We will work in setup of 4 - 5 people which will be defined Friday morning.
 
 ## What is a programming dojo
 
-[![Programming Dojo](http://img.youtube.com/vi/gav9fLVkZQc/0.jpg)](http://www.youtube.com/watch?v=gav9fLVkZQc "Programming Dojo")
+- Please read through this [definition](http://codingdojo.org/WhatIsCodingDojo/)
+- Addtional check out this 📺 [Youtube Video](http://www.youtube.com/watch?v=gav9fLVkZQc)
+
+### Kata
+
+Please through these 3 Katas. Your group will solve at least one of these Kata.
+
+1. http://codingdojo.org/kata/GameOfLife/
+2. http://codingdojo.org/kata/GildedRose/
+3. http://codingdojo.org/kata/TexasHoldEm/
+
+## 🚨Important information
+
+- Each group can decided on their own which language they want to use, e.g. Java, Javascript, Typescript
+- We don't recommend to use any libraries what so ever
+- Use teh IDE you feel most comfortable in
+- To starte create a `branch` of your group
