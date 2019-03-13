@@ -17,7 +17,7 @@ We will work in setup of 4 - 5 people which will be defined Friday morning.
 
 ### Kata
 
-Please through these 3 Katas. Your group will solve at least one of these Kata.
+Please read through these 3 Katas. Your group will solve at least one of these Kata.
 
 1. http://codingdojo.org/kata/GameOfLife/
 2. http://codingdojo.org/kata/GildedRose/
