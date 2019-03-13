@@ -13,7 +13,7 @@ We will work in setup of 4 - 5 people which will be defined Friday morning.
 ## What is a programming dojo
 
 - Please read through this [definition](http://codingdojo.org/WhatIsCodingDojo/)
-- Addtional check out this 📺 [Youtube Video](http://www.youtube.com/watch?v=gav9fLVkZQc)
+- Additionally check out this 📺 [Youtube Video](http://www.youtube.com/watch?v=gav9fLVkZQc)
 
 ### Kata
 
