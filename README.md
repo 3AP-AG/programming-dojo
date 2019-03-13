@@ -2,7 +2,7 @@
 
 ## What will we do?
 
-On Friday afternoon we will improve our programming skills in a pair / extrem programming like setup.
+On Friday afternoon we will improve our programming skills in a pair / extreme programming like setup.
 We will work in setup of 4 - 5 people which will be defined Friday morning.
 
 ## What do we need from you
