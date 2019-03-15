@@ -78,18 +78,53 @@ export class GildedRose {
 //The Quality of an item is never more than 50
 //The Quality of an item is never negative
 
-export const breeStrategy = (item: Item): Item => {
-    return new Item(1,2,3);
+export const brieStrategy = (item: Item): Item => {
+    let sellIn;
+    let quality;
+    const qualityDecrDays = item.sellIn <= 0 ? 2 :1;
+    quality = item.quality <= 50 - qualityDecrDays ? item.quality + qualityDecrDays : 50;
+    sellIn = item.sellIn - 1;
+    return new Item(item.name, sellIn, quality);
 };
 
 // Once the sell by date has passed, Quality degrades twice as fast
 export const defaultStrategy = (item: Item): Item => {
-    return new Item(1,2,3);
+    let sellIn;
+    let quality;
+    if (item.sellIn <= 0) {
+        quality = item.quality >= 2 ? item.quality - 2 : 0;
+    } else {
+        quality = item.quality >= 1 ? item.quality - 1 : 0;
+    }
+    sellIn = item.sellIn - 1;
+    return new Item(item.name, sellIn, quality);
 };
+
+
+export const sulfurasStrategy = (item: Item): Item => {
+    return new Item(item.name, item.sellIn, item.quality);
+}
+
+// “Backstage passes”, like aged brie, increases in Quality as it’s SellIn value approaches; 
+// Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but 
+// Quality drops to 0 after the concert
+
+
+export const BackstagePassesStrategy = (item: Item): Item => {
+    let sellIn;
+    let quality;
+    const qualityDecrDays = item.sellIn <= 0 ? 5 :1;
+    quality = item.quality <= 50 - qualityDecrDays ? item.quality + qualityDecrDays : 50;
+    sellIn = item.sellIn - 1;
+    return new Item(item.name, sellIn, quality);
+}
+
 
 // Aged Brie” actually increases in Quality the older it gets
 export const factoryStrategy = {
-    'Aged Brie': breeStrategy
+    'Aged Brie': brieStrategy,
+    'Sulfuras': sulfurasStrategy,
+    'Backstage passes': BackstagePassesStrategy
 };
 
 export const handleNextDay = (item: Item, day: number): Item => {
