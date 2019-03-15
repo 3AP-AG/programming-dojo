@@ -62,10 +62,10 @@ class App extends Component {
         const xRow = []
         for (let ix = 0; ix < this.state.dimensionX; ix++) {
           let noOfAliveNeighbours = this.countLivingNeighbors(ix,iy);
-          console.log('ALIVE NEB:', noOfAliveNeighbours);
           console.log('POSITION:', iy, ix);
+          console.log('ALIVE NEB:', noOfAliveNeighbours);
           console.log("NEW VALUE",this.isNewCellAlive(this.state.matrix[ix,iy], noOfAliveNeighbours))
-          xRow.push(this.isNewCellAlive(this.state.matrix[ix,iy], noOfAliveNeighbours));
+          xRow.push(this.isNewCellAlive(this.state.matrix[iy][ix], noOfAliveNeighbours));
         }
         buildMatrix.push(xRow);
       }
@@ -100,7 +100,7 @@ class App extends Component {
     const neighborsInTheGrid = neighbors.filter(({x, y}) => y >= 0 && y < this.state.dimensionY && x >= 0 && x < this.state.dimensionX);
     // console.log('neighbors', x, y, neighborsInTheGrid.length);
 
-    const aliveNeighbors = neighbors.filter(({x, y}) => y > 0 && y < this.state.dimensionY && x > 0 && x < this.state.dimensionX)
+    const aliveNeighbors = neighbors.filter(({x, y}) => y >= 0 && y < this.state.dimensionY && x >= 0 && x < this.state.dimensionX)
     .map(({x, y}) => this.state.matrix[y][x])
     .filter(value => value);
     // console.log('alive', x, y, aliveNeighbors);
