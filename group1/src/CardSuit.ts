@@ -1,3 +1,5 @@
+import { swapKeyValue } from "./utils";
+
 const enum CardSuitEnum {
     HEARTS = 'HEARTS',
     DIAMONDS = 'DIAMONDS',
@@ -5,12 +7,22 @@ const enum CardSuitEnum {
     CLUBS = 'CLUBS'
 }
 
+const characterSuitType: any = 
+        { h: CardSuitEnum.HEARTS, 
+            d: CardSuitEnum.DIAMONDS, 
+            s: CardSuitEnum.SPADES, c: CardSuitEnum.CLUBS };
+
+const suitCharacterType = swapKeyValue(characterSuitType);
+
 export class CardSuit {
     constructor(private cardSuitEnum: CardSuitEnum) {}
 
     public static suitFromCharacter(character: string): CardSuit {
-        const characterSuitType: any = 
-        { h: CardSuitEnum.HEARTS, d: CardSuitEnum.DIAMONDS, s: CardSuitEnum.SPADES, c: CardSuitEnum.CLUBS };
+        
         return new CardSuit(characterSuitType[character]);
+    }
+
+    public toString():string{
+        return suitCharacterType[this.cardSuitEnum];
     }
 }

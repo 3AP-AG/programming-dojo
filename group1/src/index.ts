@@ -16,4 +16,4 @@ function cardFromString(cardString: string): Card{
 }
 
 const t = cardFromString('Kc');
-console.log(t);
+console.log(t, t.toString());

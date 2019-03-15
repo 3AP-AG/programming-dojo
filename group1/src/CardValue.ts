@@ -41,4 +41,8 @@ export class CardValue {
         return new CardValue(characterValueType[character]);
     }
 
+    public toString():string{
+        return '';
+    }
+
 }
