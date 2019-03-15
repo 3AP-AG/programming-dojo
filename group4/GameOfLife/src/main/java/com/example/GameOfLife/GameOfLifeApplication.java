@@ -10,4 +10,10 @@ public class GameOfLifeApplication {
 		SpringApplication.run(GameOfLifeApplication.class, args);
 	}
 
+	public Matrix createMatrix(String input) {
+		return null;
+	}
+
+
+
 }
