@@ -141,7 +141,10 @@ class App extends Component {
                 border: none;
                 outline: none;
                 text-transform: uppercase;
-                padding: 5px;
+                font-size: 16px;
+                font-weight: 600;
+                padding: 10px;
+                border-radius: 5px;
                 margin: 10px;
             }
 
