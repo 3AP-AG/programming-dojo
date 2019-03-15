@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Cell from './cell';
 
@@ -11,7 +11,7 @@ class App extends Component {
 
   inputX = (event) => {
     console.log('X:', event.target.value);
-    this.setState({ dimensionX: event.target.value });
+    this.setState({dimensionX: event.target.value});
   };
 
   generateMatrix = () => {
@@ -19,7 +19,7 @@ class App extends Component {
       const buildMatrix = [];
       for (let iy = 0; iy < this.state.dimensionY; iy++) {
         const xRow = []
-        for (let ix = 0; ix < this.state.dimensionX; ix++){
+        for (let ix = 0; ix < this.state.dimensionX; ix++) {
           xRow.push(false);
         }
         buildMatrix.push(xRow);
@@ -33,46 +33,46 @@ class App extends Component {
 
   inputY = (event) => {
     console.log('Y:', event.target.value)
-    this.setState({ dimensionY: event.target.value });
+    this.setState({dimensionY: event.target.value});
 
+  };
+
+  updateCellState = (x, y) => {
+    return () => {
+      this.setState((prevState) => {
+        const {matrix} = prevState;
+        matrix[y][x] = !matrix[y][x];
+        return {
+          matrix,
+        }
+      });
+    }
   };
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {/*<img src={logo} className="App-logo" alt="logo" />*/}
-          {/*<p>*/}
-            {/*Edit <code>src/App.js</code> and save to reload.*/}
-          {/*</p>*/}
-          {/*<a*/}
-            {/*className="App-link"*/}
-            {/*href="https://reactjs.org"*/}
-            {/*target="_blank"*/}
-            {/*rel="noopener noreferrer"*/}
-          {/*>*/}
-            {/*Learn React*/}
-          {/*</a>*/}
-
           <input onChange={this.inputX}/>
           <input onChange={this.inputY}/>
           <button onClick={this.generateMatrix}>generate matrix</button>
           Test
           <table>
-            {this.state.matrix.map(yRow => { 
-            return (
-              <tr>
-                {yRow.map(value => {
-            return (
-              <td>
-            <Cell alive={value} />
-            </td>
-            )
-          })}
-              </tr>
-            )})}
+            {this.state.matrix.map((yRow, yIndex) => {
+              return (
+                <tr>
+                  {yRow.map((value, xIndex) => {
+                    return (
+                      <td>
+                        <Cell alive={value} x={xIndex} y={yIndex}
+                              onClick={this.updateCellState(xIndex, yIndex)}/>
+                      </td>
+                    )
+                  })}
+                </tr>
+              )
+            })}
           </table>
-
         </header>
       </div>
     );

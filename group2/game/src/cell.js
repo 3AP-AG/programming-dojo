@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Cell(props) {
-    return (
-        props.alive ? <span>ALIVE</span> : <span>DEAD</span>
-    );
+export default function Cell({alive, onClick}) {
+  return (
+    <button onClick={onClick}>{alive ? <span>*</span> : <span>-</span>}</button>
+  );
 }
