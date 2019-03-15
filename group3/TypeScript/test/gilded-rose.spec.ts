@@ -18,6 +18,8 @@ const days: number = 2;
 
 describe('Gilded Rose', function () {
 
+    const newItems = items.map( (item) => new Item( item.name, item.sellIn, item.quality))
+
     it('should foo', function() {
         const gildedRose = new GildedRose([ new Item('foo', 0, 0) ]);
         const items = gildedRose.updateQuality();
@@ -27,6 +29,7 @@ describe('Gilded Rose', function () {
     it(`Asserting state after ${days} days`, function () {
 
         const oldResult = {};
+        
         const gildedRose = new GildedRose(items);
 
         for (let i = 0; i < days; i++) {
@@ -34,7 +37,7 @@ describe('Gilded Rose', function () {
         }
 
         const newResult = {};
-        const newGildedRose = new GildedRose(items);
+        const newGildedRose = new GildedRose(newItems);
 
         for (let i = 0; i < days; i++) {
             newResult[i] = newGildedRose.updateQualityDev();
