@@ -34,4 +34,14 @@ class TexasHoldemTest extends Specification {
         then:
         expectedResult == result
     }
+
+    void "return pair"() {
+        given:
+        List<String> cardSets =
+            ["Kc", "9s", "Ks", "Kd", "9d", "3c", "6d"]
+        when:
+        boolean isPair = texasHoldem.hasPair(cardSets)
+        then:
+        isPair
+    }
 }

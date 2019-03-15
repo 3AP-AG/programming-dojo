@@ -59,12 +59,15 @@ public class TexasHoldem {
 
         for (String card : highestCards) {
             if (card.charAt(0) == highestRank.charAt(0)) {
-                results.add();
+                for (List<String> list : cardSets) {
+                    if (list.contains(card)) {
+                        results.add(list);
+                    }
+                }
             }
         }
 
-
-        return null;
+        return results;
     }
 
  }
