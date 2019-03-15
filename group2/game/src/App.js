@@ -51,40 +51,32 @@ class App extends Component {
         return {
           matrix,
         }
-      }, () => {
-        console.log('NEW STATE', this.state);
       });
     }
   };
 
   checkMatrix = () => {
-    
+    console.log("Original matrix",this.state.matrix)
     const buildMatrix = [];
       for (let iy = 0; iy < this.state.dimensionY; iy++) {
         const xRow = []
         for (let ix = 0; ix < this.state.dimensionX; ix++) {
-          xRow.push(this.state.matrix[iy][ix]);
+          let noOfAliveNeighbours = this.countLivingNeighbors(ix,iy);
+          console.log('ALIVE NEB:', noOfAliveNeighbours);
+          console.log('POSITION:', iy, ix);
+          console.log("NEW VALUE",this.isNewCellAlive(this.state.matrix[ix,iy], noOfAliveNeighbours))
+          xRow.push(this.isNewCellAlive(this.state.matrix[ix,iy], noOfAliveNeighbours));
         }
         buildMatrix.push(xRow);
       }
-      console.log('NEW BUIDL', buildMatrix);
-    const newMatrix = buildMatrix;
-    console.log(newMatrix)
-    for (let iy = 0; iy < this.state.dimensionY; iy++) {
-      for (let ix = 0; ix < this.state.dimensionX; ix++) {
-        let noOfAliveNeighbours = this.countLivingNeighbors(ix,iy);
-        
-        newMatrix[iy][ix] = this.isNewCellAlive(this.state.matrix[ix,iy], noOfAliveNeighbours)
-      }
-    }
+
     this.setState({
-      matrix: newMatrix,
+      matrix: buildMatrix,
     });
   }
 
   isNewCellAlive = (currentCell, noOfAliveNeighbours) => {
     if (currentCell){
-   
       if (noOfAliveNeighbours < 2 || noOfAliveNeighbours> 3) return false
       return currentCell;
     }else{
@@ -106,12 +98,12 @@ class App extends Component {
     ];
 
     const neighborsInTheGrid = neighbors.filter(({x, y}) => y >= 0 && y < this.state.dimensionY && x >= 0 && x < this.state.dimensionX);
-    console.log('neighbors', x, y, neighborsInTheGrid.length);
+    // console.log('neighbors', x, y, neighborsInTheGrid.length);
 
     const aliveNeighbors = neighbors.filter(({x, y}) => y > 0 && y < this.state.dimensionY && x > 0 && x < this.state.dimensionX)
     .map(({x, y}) => this.state.matrix[y][x])
     .filter(value => value);
-    console.log('alive', x, y, aliveNeighbors);
+    // console.log('alive', x, y, aliveNeighbors);
 
     return aliveNeighbors.length;
   }
