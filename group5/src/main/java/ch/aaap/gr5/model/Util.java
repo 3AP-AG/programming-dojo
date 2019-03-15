@@ -17,7 +17,7 @@ public class Util {
 
 	      while(sc.hasNextLine()) {
 	         for (int i=0; i<myArray.length; i++) {
-	            String[] line = sc.nextLine().trim().split(" ");
+	            String[] line = sc.nextLine().trim().split("");
 	            for (int j=0; j<line.length; j++) {
 	               myArray[i][j] = line[j];
 	            }

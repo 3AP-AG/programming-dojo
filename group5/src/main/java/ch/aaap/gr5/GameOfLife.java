@@ -1,20 +1,19 @@
 package ch.aaap.gr5;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import ch.aaap.gr5.model.Grid;
+import ch.aaap.gr5.model.Util;
+
 public class GameOfLife {
 
-    public static void main(String[] args){
-        //read file into stream, try-with-resources
-        try (Stream<String> stream = Files.lines(Paths.get(args[0]))) {
-
-            stream.forEach(System.out::println);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws FileNotFoundException{
+        // read file into stream, try-with-resources
+    	Grid grid = Util.parseFromFile(args[0]);
+    	System.out.println(grid);
     }
 }
