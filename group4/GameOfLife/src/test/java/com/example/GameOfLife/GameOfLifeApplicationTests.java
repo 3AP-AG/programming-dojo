@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static com.example.GameOfLife.GameOfLifeApplication.*;
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,9 +21,10 @@ public class GameOfLifeApplicationTests {
 				+ "...**...\n"
 				+ "........\n";
 		
-		//Matrix matrix = createMatrix(input);
+		Matrix matrix = createMatrix(input);
 		
-		//assertEquals(matrix.length,8);
+		assertEquals(matrix.getCellFromPosition(0,0).isAlive,false);
+		assertEquals(matrix.getCellFromPosition(2,5).isAlive,true);
 	}
 
 	@Test

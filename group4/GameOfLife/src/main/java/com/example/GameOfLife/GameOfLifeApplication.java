@@ -13,14 +13,19 @@ public class GameOfLifeApplication {
         SpringApplication.run(GameOfLifeApplication.class, args);
     }
 
-    public Matrix createMatrix(String input) {
+    public static Matrix createMatrix(String input) {
 
 
         final int width = extractWidth(input);
         final int length = extractLength(input);
         final Matrix matrix = new Matrix(length, width);
 
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < length; i++) {
+            for(int j = 0; j < width; j++) {
+
+                boolean cellAlive = isCellAlive(input.charAt(i * width + j));
+                matrix.addCell(i, j, cellAlive);
+            }
 
         }
 
@@ -38,6 +43,11 @@ public class GameOfLifeApplication {
         return input.indexOf('\n');
 
     }
+
+    static boolean isCellAlive(char cell) {
+        return cell == '*';
+    }
+
 
 
 }
