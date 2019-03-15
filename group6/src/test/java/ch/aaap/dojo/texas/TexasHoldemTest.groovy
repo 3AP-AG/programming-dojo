@@ -48,6 +48,23 @@ class TexasHoldemTest extends Specification {
         where:
         cardSets                                   | expectPair
         ["Kc", "9s", "Ks", "Kd", "9d", "3c", "6d"] | true
+        ["Kc", "9s", "As", "Kd", "9d", "3c", "6d"] | true
+        ["Kd", "9d", "3c", "6d"]                   | false
+    }
+
+    @Unroll
+    void "return is pair #expectTriple for set #cardSets"() {
+
+        when:
+        boolean isTriple = texasHoldem.hasTriple(cardSets)
+
+        then:
+        expectTriple == isTriple
+
+        where:
+        cardSets                                   | expectTriple
+        ["Kc", "9s", "Ks", "Kd", "9d", "3c", "6d"] | true
+        ["Kc", "9s", "As", "Kd", "9d", "3c", "6d"] | false
         ["Kd", "9d", "3c", "6d"]                   | false
     }
 

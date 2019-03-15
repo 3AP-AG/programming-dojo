@@ -80,4 +80,15 @@ public class TexasHoldem {
         }
         return rankOccurences.values().stream().anyMatch(v -> v >= 2);
     }
+
+    public boolean hasTriple(List<String> cardSet) {
+        final Map<Character, Integer> rankOccurences = new HashMap<>();
+        for (String card : cardSet) {
+            char rank = card.charAt(0);
+
+            Integer count = rankOccurences.getOrDefault(rank, 0);
+            rankOccurences.put(rank, count + 1);
+        }
+        return rankOccurences.values().stream().anyMatch(v -> v >= 3);
+    }
 }
