@@ -13,21 +13,27 @@ class App extends Component {
     this.setState({ dimensionX: event.target.value });
   };
 
-  inputY = (event) => {
-    console.log('Y:', event.target.value)
-    this.setState({ dimensionY: event.target.value });
+  generateMatrix = () => {
     if (this.state.dimensionX && this.state.dimensionY) {
-      const buildMatrix = [[]];
-      for (let ix = 0; ix < this.state.dimensionX; ix++) {
-        for (let iy = 0; iy < this.state.dimensionY; iy++) {
-          buildMatrix[iy][ix] = false;
+      const buildMatrix = [];
+      for (let iy = 0; iy < this.state.dimensionY; iy++) {
+        const xRow = []
+        for (let ix = 0; ix < this.state.dimensionX; ix++){
+          xRow.push(false);
         }
+        buildMatrix.push(xRow);
       }
       console.log('matrix:', buildMatrix);
       this.setState({
         matrix: buildMatrix,
       });
     }
+  }
+
+  inputY = (event) => {
+    console.log('Y:', event.target.value)
+    this.setState({ dimensionY: event.target.value });
+
   };
 
   render() {
@@ -49,7 +55,10 @@ class App extends Component {
 
           <input onChange={this.inputX}/>
           <input onChange={this.inputY}/>
+          <button onClick={this.generateMatrix}>generate matrix</button>
           Test
+          {this.state.matrix.map()}
+
         </header>
       </div>
     );
