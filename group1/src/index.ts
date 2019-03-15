@@ -1,19 +1,4 @@
-import { Card } from "./Card";
-import { CardSuit } from "./CardSuit";
-import { CardValue } from "./CardValue";
+import { Hand } from './Hand';
 
-function parseLine(line: string) {
-    return line.split(' ');
-}
-
-function cardFromString(cardString: string): Card{
-    const rawSuit = cardString[1];
-    const rawValue = cardString[0];
-
-    const suit = CardSuit.suitFromCharacter(rawSuit);
-    const value = CardValue.cardValueFromCharacter(rawValue);
-    return new Card(value, suit);
-}
-
-const t = cardFromString('Kc');
-console.log(t, t.toString());
+const hand = Hand.getHandFromLine('Kc 9s Ks Kd 9d 3c 6d');
+console.log(hand, hand.toString());

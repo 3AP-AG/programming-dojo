@@ -1,5 +1,5 @@
-import {CardSuit} from "./CardSuit";
-import { swapKeyValue } from "./utils";
+import { CardSuit } from './CardSuit';
+import { swapKeyValue } from './utils';
 
 export const enum CardValueEnum {
     ONE = 'ONE',
@@ -28,11 +28,11 @@ const characterValueType: any = {
     '7': CardValueEnum.SEVEN,
     '8': CardValueEnum.EIGHT,
     '9': CardValueEnum.NINE,
-    'T': CardValueEnum.TEN,
-    'J': CardValueEnum.JACK,
-    'Q': CardValueEnum.QUEEN,
-    'K': CardValueEnum.KING,
-    'A': CardValueEnum.ACE
+    T: CardValueEnum.TEN,
+    J: CardValueEnum.JACK,
+    Q: CardValueEnum.QUEEN,
+    K: CardValueEnum.KING,
+    A: CardValueEnum.ACE
 };
 
 const valueCharacterType: any = swapKeyValue(characterValueType);
@@ -44,8 +44,7 @@ export class CardValue {
         return new CardValue(characterValueType[character]);
     }
 
-    public toString():string{
+    public toString(): string {
         return valueCharacterType[this.cardValueEnum];
     }
-
 }

@@ -4,4 +4,4 @@ export const swapKeyValue = (object: any) => {
         acc[value] = key;
         return acc;
     }, {});
-}
+};
