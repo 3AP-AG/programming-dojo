@@ -34,7 +34,7 @@ public class TexasHoldem {
             char rankOfCard = card.charAt(0);
             Integer rank = CARD_RANK.get(rankOfCard);
 
-            if(currentMax < rank) {
+            if (currentMax < rank) {
                 currentMax = rank;
                 maxCard = card;
             }
@@ -43,7 +43,7 @@ public class TexasHoldem {
         return maxCard;
     }
 
-    public List<List<String>> extractHighestCardSets(final List<List<String>> cardSets){
+    public List<List<String>> extractHighestCardSets(final List<List<String>> cardSets) {
         List<List<String>> results = new ArrayList<>();
         List<String> highestCards = new ArrayList<>();
         String highestRank;
@@ -70,4 +70,14 @@ public class TexasHoldem {
         return results;
     }
 
- }
+    public boolean hasPair(List<String> cardSet) {
+        final Map<Character, Integer> rankOccurences = new HashMap<>();
+        for (String card : cardSet) {
+            char rank = card.charAt(0);
+
+            Integer count = rankOccurences.getOrDefault(rank, 0);
+            rankOccurences.put(rank, count + 1);
+        }
+        return rankOccurences.values().stream().anyMatch(v -> v >= 2);
+    }
+}
