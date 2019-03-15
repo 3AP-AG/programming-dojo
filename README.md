@@ -19,7 +19,7 @@ We will work in teams of 4 - 5 people which will be defined Friday morning.
 
 Please read through these 3 Katas. Your group will solve at least one of these Kata.
 
-1. http://codingdojo.org/kata/GameOfLife/
+1. http://codingdojo.org/kata/ch.aaap.gr5.GameOfLife/
 2. http://codingdojo.org/kata/GildedRose/
 3. http://codingdojo.org/kata/TexasHoldEm/
 
