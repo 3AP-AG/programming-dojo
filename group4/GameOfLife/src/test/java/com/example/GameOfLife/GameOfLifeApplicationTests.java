@@ -10,7 +10,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class GameOfLifeApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void parsedSuccessfully() {
+		String input = "........\n"
+				+ "....*...\n"
+				+ "...**...\n"
+				+ "........\n";
+		
+		Matrix matrix = createMatrix(input);
+		assertEquals(matrix.length,8); 
 	}
 
 }
