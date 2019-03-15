@@ -58,9 +58,20 @@ class App extends Component {
           <input onChange={this.inputY}/>
           <button onClick={this.generateMatrix}>generate matrix</button>
           Test
-          {this.state.matrix.map(yRow => {xRow.map(value => {
-            return (<Cell alive={value} />)
-          })})}
+          <table>
+            {this.state.matrix.map(yRow => { 
+            return (
+              <tr>
+                {yRow.map(value => {
+            return (
+              <td>
+            <Cell alive={value} />
+            </td>
+            )
+          })}
+              </tr>
+            )})}
+          </table>
 
         </header>
       </div>

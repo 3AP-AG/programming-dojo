@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cell = (props) => {
+export default function Cell(props) {
     return (
         props.alive ? <span>ALIVE</span> : <span>DEAD</span>
     );
