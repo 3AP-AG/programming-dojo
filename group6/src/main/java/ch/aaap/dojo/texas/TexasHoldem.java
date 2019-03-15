@@ -1,5 +1,7 @@
 package ch.aaap.dojo.texas;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,4 +42,29 @@ public class TexasHoldem {
 
         return maxCard;
     }
-}
+
+    public List<List<String>> extractHighestCardSets(final List<List<String>> cardSets){
+        List<List<String>> results = new ArrayList<>();
+        List<String> highestCards = new ArrayList<>();
+        String highestRank;
+
+        for (List<String> cardSet :
+            cardSets) {
+            final String highestCard = extractHighestCard(cardSet);
+
+            highestCards.add(highestCard);
+        }
+
+        highestRank = extractHighestCard(highestCards);
+
+        for (String card : highestCards) {
+            if (card.charAt(0) == highestRank.charAt(0)) {
+                results.add();
+            }
+        }
+
+
+        return null;
+    }
+
+ }
