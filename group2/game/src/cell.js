@@ -18,6 +18,11 @@ export default function Cell({alive, onClick}) {
               margin: 5px;
           }
 
+          span {
+            font-size: 24px;
+            font-weight: 600;
+          }
+
           .alive {
               color: green;
           }
