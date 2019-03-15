@@ -87,13 +87,14 @@ class App extends Component {
           <button onClick={this.generateMatrix}>generate matrix</button>
           Test
           <table>
+            <tbody>
             {this.state.matrix.map((yRow, yIndex) => {
               return (
-                <tr>
-                  {yRow.map((value, xIndex) => {
+                <tr key={`yRow${yIndex}`}>
+                  {yRow.map((xColumn, xIndex) => {
                     return (
-                      <td>
-                        <Cell alive={value} x={xIndex} y={yIndex}
+                      <td key={`$xColumn${xIndex}`}>
+                        <Cell alive={xColumn} x={xIndex} y={yIndex}
                               onClick={this.updateCellState(xIndex, yIndex)}/>
                       </td>
                     )
@@ -101,6 +102,7 @@ class App extends Component {
                 </tr>
               )
             })}
+            </tbody>
           </table>
         </header>
       </div>
