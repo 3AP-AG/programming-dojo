@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Cell from './cell';
 
 class App extends Component {
   state = {
@@ -57,7 +58,9 @@ class App extends Component {
           <input onChange={this.inputY}/>
           <button onClick={this.generateMatrix}>generate matrix</button>
           Test
-          {this.state.matrix.map()}
+          {this.state.matrix.map(yRow => {xRow.map(value => {
+            return (<Cell alive={value} />)
+          })})}
 
         </header>
       </div>
