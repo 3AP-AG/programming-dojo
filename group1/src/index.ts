@@ -1,4 +1,4 @@
-import { Hand } from './Hand';
+import { chain } from './combinationHandlers';
 import { Game } from './Game';
 
 const gameString = `Kc 9s Ks Kd 9d 3c 6d
@@ -13,3 +13,4 @@ Ac Qc Ks Kd 9d 3c
 
 const game = Game.getGameFromString(gameString);
 console.log(game.toString());
+console.log(chain);
