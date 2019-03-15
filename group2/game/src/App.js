@@ -51,9 +51,47 @@ class App extends Component {
         return {
           matrix,
         }
+      }, () => {
+        console.log('NEW STATE', this.state);
       });
     }
   };
+
+  checkMatrix = () => {
+    
+    const buildMatrix = [];
+      for (let iy = 0; iy < this.state.dimensionY; iy++) {
+        const xRow = []
+        for (let ix = 0; ix < this.state.dimensionX; ix++) {
+          xRow.push(this.state.matrix[iy][ix]);
+        }
+        buildMatrix.push(xRow);
+      }
+      console.log('NEW BUIDL', buildMatrix);
+    const newMatrix = buildMatrix;
+    console.log(newMatrix)
+    for (let iy = 0; iy < this.state.dimensionY; iy++) {
+      for (let ix = 0; ix < this.state.dimensionX; ix++) {
+        let noOfAliveNeighbours = this.countLivingNeighbors(ix,iy);
+        
+        newMatrix[iy][ix] = this.isNewCellAlive(this.state.matrix[ix,iy], noOfAliveNeighbours)
+      }
+    }
+    this.setState({
+      matrix: newMatrix,
+    });
+  }
+
+  isNewCellAlive = (currentCell, noOfAliveNeighbours) => {
+    if (currentCell){
+   
+      if (noOfAliveNeighbours < 2 || noOfAliveNeighbours> 3) return false
+      return currentCell;
+    }else{
+      return noOfAliveNeighbours === 3 
+    }
+
+  }
 
   countLivingNeighbors = (x, y) => {
     const neighbors = [
@@ -86,6 +124,7 @@ class App extends Component {
           <input onChange={this.inputY}/>
           <button onClick={this.generateMatrix}>generate matrix</button>
           Test
+          <button onClick={this.checkMatrix}>Play</button>
           <table>
             <tbody>
             {this.state.matrix.map((yRow, yIndex) => {
