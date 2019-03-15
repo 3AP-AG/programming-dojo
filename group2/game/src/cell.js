@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function Cell({alive, onClick}) {
   return (
-    <button className="cell" onClick={onClick}>{alive ? <span>*</span> : <span>-</span>}
+    <button className="cell" onClick={onClick}>{alive ? <span className="alive">*</span> :
+      <span className="dead">-</span>}
       {/* language=CSS */}
       <style jsx>{`
           .cell {
@@ -15,6 +16,14 @@ export default function Cell({alive, onClick}) {
               cursor: pointer;
               outline: none;
               margin: 5px;
+          }
+
+          .alive {
+              color: green;
+          }
+
+          .dead {
+              color: red;
           }
       `}</style>
     </button>
