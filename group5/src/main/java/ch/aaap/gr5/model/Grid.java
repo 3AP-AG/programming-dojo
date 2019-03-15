@@ -6,9 +6,9 @@ public class Grid {
 
 	private int rowSize;
 	private int columnSize;
-	private String[][] grid;
+	private Cell[][] grid;
 
-	public Grid(int rowSize, int columnSize, String[][] grid) {
+	public Grid(int rowSize, int columnSize, Cell[][] grid) {
 		this.rowSize = rowSize;
 		this.columnSize = columnSize;
 		this.grid = grid;
@@ -30,11 +30,11 @@ public class Grid {
 		this.columnSize = columnSize;
 	}
 
-	public String[][] getGrid() {
+	public Cell[][] getGrid() {
 		return grid;
 	}
 
-	public void setGrid(String[][] grid) {
+	public void setGrid(Cell[][] grid) {
 		this.grid = grid;
 	}
 
