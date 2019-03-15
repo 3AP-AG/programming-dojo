@@ -18,7 +18,7 @@ const days: number = 2;
 
 describe('Gilded Rose', function () {
 
-    const newItems = items.map( (item) => new Item( item.name, item.sellIn, item.quality))
+    const newItems = items.map( (item) => new Item( item.name, item.sellIn, item.quality));
 
     it('should foo', function() {
         const gildedRose = new GildedRose([ new Item('foo', 0, 0) ]);
@@ -45,9 +45,6 @@ describe('Gilded Rose', function () {
 
         for (let day = 0; day < days; day++) {
             oldResult[day].forEach((item: Item, index: number) => {
-
-                console.log(item.sellIn)
-                console.log(newResult[day][index].sellIn)
                 expect(item.name).to.equal(newResult[day][index].name);
                 expect(item.sellIn).to.equal(newResult[day][index].sellIn);
                 expect(item.quality).to.equal(newResult[day][index].quality);

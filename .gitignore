@@ -238,3 +238,10 @@ hs_err_pid*
 # Sonarlint plugin
 
 # End of https://www.gitignore.io/api/java,eclipse,webstorm,intellij,visualstudiocodep
+group3/\.idea/group3\.iml
+
+group3/\.idea/misc\.xml
+
+group3/\.idea/modules\.xml
+
+group3/\.idea/workspace\.xml
