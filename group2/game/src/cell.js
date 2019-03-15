@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function Cell({alive, onClick}) {
   return (
-    <button onClick={onClick}>{alive ? <span>*</span> : <span>-</span>}
+    <button className="cell" onClick={onClick}>{alive ? <span>*</span> : <span>-</span>}
       {/* language=CSS */}
       <style jsx>{`
-          button {
+          .cell {
               font-size: 14px;
               border: none;
               padding: 10px 10px;
