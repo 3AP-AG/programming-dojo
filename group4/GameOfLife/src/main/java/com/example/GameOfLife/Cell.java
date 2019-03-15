@@ -3,6 +3,9 @@ package com.example.GameOfLife;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 public class Cell {
@@ -10,5 +13,9 @@ public class Cell {
     int j;
 
     boolean isAlive;
+    List<Cell> neihbours = new ArrayList<>();
 
+    public void addNeighbour(Cell neighbor) {
+        neihbours.add(neighbor);
+    }
 }

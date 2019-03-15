@@ -44,4 +44,6 @@ public class GameOfLifeApplicationTests {
 		assertThat(width).isEqualTo(8);
 	}
 
+
+
 }

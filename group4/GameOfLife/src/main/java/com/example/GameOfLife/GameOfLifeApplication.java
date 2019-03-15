@@ -1,8 +1,10 @@
 package com.example.GameOfLife;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.*;
 
@@ -24,7 +26,9 @@ public class GameOfLifeApplication {
             for(int j = 0; j < width; j++) {
 
                 boolean cellAlive = isCellAlive(input.charAt(i * width + j));
-                matrix.addCell(i, j, cellAlive);
+
+                List<Cell> cells = neighbors;
+                matrix.addCell(i, j, cellAlive, cells);
             }
 
         }
@@ -48,6 +52,18 @@ public class GameOfLifeApplication {
         return cell == '*';
     }
 
+    List<Cell> addNeighbours(Matrix matrix, Cell cell){
+        ArrayList<Cell> neighbours = new ArrayList<>();
+        neighbours.add(matrix.getCellFromPosition(cell.i-1, cell.j-1);
+        neighbours.add(matrix.getCellFromPosition(cell.i,cell.j-1);
+        neighbours.add(matrix.getCellFromPosition(cell.i+1,cell.j+1);
+        neighbours.add(matrix.getCellFromPosition(cell.i-1,cell.j);
+        neighbours.add(matrix.getCellFromPosition(cell.i+1,cell.j);
+        neighbours.add(matrix.getCellFromPosition(cell.i+1,cell.j+1);
+        neighbours.add(matrix.getCellFromPosition(cell.i+1, cell.j);
+        neighbours.add(matrix.getCellFromPosition(cell.i,cell.j+1);
+        neighbours.add(matrix.getCellFromPosition(cell.i+1,cell.j+1);
+    }
 
 
 }
