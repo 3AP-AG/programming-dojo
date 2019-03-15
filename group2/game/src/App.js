@@ -27,6 +27,12 @@ class App extends Component {
       console.log('matrix:', buildMatrix);
       this.setState({
         matrix: buildMatrix,
+      }, () => {
+        this.state.matrix.forEach((yRow, yIndex) => {
+          yRow.forEach((xColumn, xIndex) => {
+            this.countLivingNeighbors(xIndex, yIndex);
+          })
+        })
       });
     }
   }
@@ -48,6 +54,29 @@ class App extends Component {
       });
     }
   };
+
+  countLivingNeighbors = (x, y) => {
+    const neighbors = [
+      {x: x - 1, y: y},
+      {x: x - 1, y: y - 1},
+      {x: x - 1, y: y + 1},
+      {x: x, y: y - 1},
+      {x: x, y: y + 1},
+      {x: x + 1, y: y},
+      {x: x + 1, y: y - 1},
+      {x: x + 1, y: y + 1},
+    ];
+
+    const neighborsInTheGrid = neighbors.filter(({x, y}) => y >= 0 && y < this.state.dimensionY && x >= 0 && x < this.state.dimensionX);
+    console.log('neighbors', x, y, neighborsInTheGrid.length);
+
+    const aliveNeighbors = neighbors.filter(({x, y}) => y > 0 && y < this.state.dimensionY && x > 0 && x < this.state.dimensionX)
+    .map(({x, y}) => this.state.matrix[y][x])
+    .filter(value => value);
+    console.log('alive', x, y, aliveNeighbors);
+
+    return aliveNeighbors.length;
+  }
 
   render() {
     return (
