@@ -8,10 +8,11 @@ class TexasHoldemTest extends Specification {
     	given: 
     		List<String> cards = ["Kc", "9s", "Ks", "Kd", "9d", "3c", "6d"];
     		String exptectedResult = "Kc";
+            TexasHoldem texasHoldem = new TexasHoldem();
     	when:
-    	
+            String result = texasHoldem.extractHighestCard(cards);
     	then: 
-    		exptectedResult 
+    		exptectedResult == result
     	
     }
 }
